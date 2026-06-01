@@ -13,17 +13,10 @@
 </head>
 <body data-page="home">
 
-<!-- ============ HERO DIVISÉ ============ -->
-<section class="hero hero-split" data-screen-label="Accueil - Héros">
+<!-- ============ HERO ============ -->
+<section class="hero" data-screen-label="Accueil - Héros">
   <div class="petals"></div>
-
-  <!-- Photo côté gauche -->
-  <div class="hs-photo">
-    <img src="assets/images/couple-10-formal-color.jpg" alt="Sifa &amp; Tommy" loading="eager" />
-  </div>
-
-  <!-- Contenu côté droit -->
-  <div class="hs-content">
+  <div class="wrap hero-inner">
     <p class="eyebrow intro d1">Nous nous marions</p>
     <h1 class="names intro d2">Sifa<span class="amp">&amp;</span>Tommy</h1>
     <div class="meta intro d3">
@@ -32,31 +25,40 @@
     </div>
     <div class="countdown intro d4" data-countdown></div>
     <p class="cd-label intro d4" data-countdown-label></p>
-    <div class="btn-row intro d5" style="margin-top:40px;">
+    <div class="btn-row intro d5" style="margin-top:42px; justify-content:center;">
       <a class="btn" href="rsvp.html"><span>RSVP</span></a>
       <a class="btn ghost" href="details.html">Les C&eacute;l&eacute;brations</a>
     </div>
-    <div class="scroll-cue intro d5"><span class="t">D&eacute;filer</span><span class="l"></span></div>
   </div>
+  <div class="scroll-cue intro d5"><span class="t">D&eacute;filer</span><span class="l"></span></div>
 </section>
 
-<!-- ============ BIENVENUE ============ -->
-<section class="section-pad">
-  <div class="wrap narrow center">
-    <p class="eyebrow reveal">Bienvenue</p>
-    <div class="reveal" aria-hidden="true">
-      <svg class="sprig" viewBox="0 0 220 40">
-        <path d="M110 20 C 92 20 84 12 60 13 C 44 13.6 36 18 22 20" style="--len:120"></path>
-        <path d="M110 20 C 128 20 136 12 160 13 C 176 13.6 184 18 198 20" style="--len:120"></path>
-        <path d="M60 13 C 56 6 52 4 47 2" style="--len:20"></path>
-        <path d="M60 13 C 64 8 70 7 76 7" style="--len:20"></path>
-        <path d="M160 13 C 164 6 168 4 173 2" style="--len:20"></path>
-        <path d="M160 13 C 156 8 150 7 144 7" style="--len:20"></path>
-        <circle cx="110" cy="20" r="3.2"></circle>
-      </svg>
+<!-- ============ LES MARIÉS ============ -->
+<section class="couple-feature section-pad">
+  <div class="wrap">
+    <div class="couple-grid">
+      <div class="couple-img reveal">
+        <div class="photo-wrap" style="aspect-ratio:3/4; border-radius:var(--radius);">
+          <img src="assets/images/couple-10-formal-color.jpg" alt="Sifa &amp; Tommy" loading="eager" style="object-position:top center;" />
+        </div>
+      </div>
+      <div class="couple-text reveal d1">
+        <p class="eyebrow" style="margin-bottom:18px;">Lubumbashi &middot; Zanzibar</p>
+        <span class="script" style="font-size:clamp(54px,9vw,108px); display:block; line-height:1;">Sifa<span class="amp">&amp;</span>Tommy</span>
+        <div class="divider left" style="margin:24px 0;"></div>
+        <p style="font-family:var(--font-serif); font-style:italic; font-size:clamp(18px,2.2vw,24px); color:var(--ink-soft); line-height:1.7; margin-bottom:28px;">&laquo;&nbsp;Nos &acirc;mes semblent s&rsquo;&ecirc;tre rencontr&eacute;es bien avant nous.&nbsp;&raquo;</p>
+        <p style="color:var(--ink-soft); line-height:1.8;">Tommy et Sifa se sont rencontr&eacute;s tr&egrave;s jeunes, d&rsquo;abord meilleurs amis. Au fil des ann&eacute;es, cette amiti&eacute; s&rsquo;est transform&eacute;e en amour, et la vie les a toujours ramen&eacute;s l&rsquo;un vers l&rsquo;autre.</p>
+        <div class="btn-row" style="margin-top:36px;">
+          <a class="btn ghost" href="story.html">Notre Histoire</a>
+          <a class="btn ghost" href="gallery.html">Galerie</a>
+        </div>
+      </div>
+      <div class="couple-img-2 reveal d2">
+        <div class="photo-wrap" style="aspect-ratio:3/4; border-radius:var(--radius);">
+          <img src="assets/images/couple-4-silhouette.jpg" alt="Sifa &amp; Tommy" loading="lazy" style="object-position:top center;" />
+        </div>
+      </div>
     </div>
-    <p class="lede reveal">Deux villes, deux cultures, une seule histoire d&rsquo;amour.</p>
-    <p class="reveal d1" style="margin-top:24px;">Nous sommes si heureux que vous soyez ici, pour c&eacute;l&eacute;brer avec nous sur les rives de Lubumbashi et les sables de Zanzibar. Vous trouverez ici tout le n&eacute;cessaire&nbsp;: le programme des c&eacute;l&eacute;brations, les informations de voyage et d&rsquo;h&eacute;bergement, ainsi que comment confirmer votre pr&eacute;sence.</p>
   </div>
 </section>
 
@@ -126,26 +128,8 @@
   </div>
 </section>
 
-<!-- ============ NOTRE HISTOIRE ============ -->
-<section class="section-pad alt-bg" data-screen-label="Accueil - Notre histoire">
-  <div class="wrap grid two" style="align-items:center;">
-    <div class="photo-wrap tall reveal" data-parallax="0.08" style="border-radius:var(--radius);">
-      <img src="assets/images/couple-1-portrait.jpg" alt="Sifa &amp; Tommy" loading="lazy" style="object-position:top center;" />
-    </div>
-    <div class="reveal d1">
-      <span class="script" style="font-size:clamp(48px,8vw,76px); display:block; line-height:1;">Notre Histoire</span>
-      <div class="divider left" style="margin:18px 0 26px;"></div>
-      <p class="lede">Nos &acirc;mes semblent s&rsquo;&ecirc;tre rencontr&eacute;es bien avant nous.</p>
-      <p style="margin-top:20px;">Tommy et Sifa se sont rencontr&eacute;s tr&egrave;s jeunes, d&rsquo;abord meilleurs amis, et au fil des ann&eacute;es, cette amiti&eacute; s&rsquo;est doucement transform&eacute;e en amour. Peu importe o&ugrave; la vie les a men&eacute;s, elle les a toujours ramen&eacute;s l&rsquo;un vers l&rsquo;autre.</p>
-      <div class="btn-row" style="margin-top:34px;">
-        <a class="btn ghost" href="story.html">Lire notre histoire</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ RSVP ============ -->
-<section class="section-pad center">
+<section class="section-pad alt-bg center">
   <div class="wrap narrow">
     <span class="script reveal" style="font-size:clamp(52px,9vw,92px); display:block; line-height:1;">Serez-vous des n&ocirc;tres&nbsp;?</span>
     <div class="divider reveal d1"></div>
