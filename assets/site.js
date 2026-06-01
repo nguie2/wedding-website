@@ -37,6 +37,14 @@
     var links = NAV.map(function (n) {
       return '<li><a class="' + (n.key === page ? "active" : "") + '" href="' + n.href + '">' + n.label + "</a></li>";
     }).join("");
+    // Mobile theme switcher injected inside the full-screen overlay
+    links +=
+      '<li class="nav-mobile-theme">' +
+        '<div class="theme-switch" role="group" aria-label="Choose style">' +
+          '<button data-theme="elegant" type="button">Elegant</button>' +
+          '<button data-theme="dolce" type="button">Dolce Vita</button>' +
+        "</div>" +
+      "</li>";
 
     var header = document.createElement("header");
     header.className = "site-header";
@@ -48,7 +56,7 @@
         "</a>" +
         '<ul class="nav-links">' + links + "</ul>" +
         '<div class="nav-right">' +
-          '<div class="theme-switch" role="group" aria-label="Choose style">' +
+          '<div class="theme-switch nav-theme-desktop" role="group" aria-label="Choose style">' +
             '<button data-theme="elegant" type="button">Elegant</button>' +
             '<button data-theme="dolce" type="button">Dolce&nbsp;Vita</button>' +
           "</div>" +
@@ -128,8 +136,10 @@
     els.forEach(function (e) { io.observe(e); });
   }
 
-  /* ---- Parallax ---- */
+  /* ---- Parallax (desktop only — skipped on touch/small screens) ---- */
   function initParallax() {
+    if (window.matchMedia("(hover: none)").matches) return;
+    if (window.innerWidth < 860) return;
     var nodes = [].slice.call(document.querySelectorAll("[data-parallax]"));
     if (!nodes.length) return;
     var ticking = false;
@@ -154,7 +164,7 @@
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     var hero = document.querySelector(".hero .petals");
     if (!hero) return;
-    var N = 12;
+    var N = window.innerWidth < 768 ? 7 : 12;
     for (var i = 0; i < N; i++) {
       var p = document.createElement("span");
       p.className = "petal";
@@ -415,6 +425,21 @@
       else if (e.key === "ArrowLeft") go(-1);
       else if (e.key === "ArrowRight") go(1);
     });
+    // Touch swipe for mobile gallery navigation
+    var swipeStartX = 0, swipeStartY = 0;
+    box.addEventListener("touchstart", function(e) {
+      swipeStartX = e.touches[0].clientX;
+      swipeStartY = e.touches[0].clientY;
+    }, { passive: true });
+    box.addEventListener("touchend", function(e) {
+      var dx = e.changedTouches[0].clientX - swipeStartX;
+      var dy = e.changedTouches[0].clientY - swipeStartY;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 44) {
+        go(dx < 0 ? 1 : -1);
+      } else if (dy > 72 && Math.abs(dx) < 44) {
+        close();
+      }
+    }, { passive: true });
   }
 
   /* ---- Tilt on cards (subtle, pointer-driven) ---- */

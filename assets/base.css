@@ -609,3 +609,253 @@ body.menu-open .menu-btn span::after { top:0; transform: rotate(-45deg); }
   .sprig path, .sprig line { stroke-dashoffset: 0 !important; }
   .timeline .tl-line { height: calc(100% - 16px) !important; }
 }
+
+/* ============================================================
+   MOBILE & TOUCH — comprehensive responsive improvements
+   ============================================================ */
+
+/* Remove tap flash on mobile browsers */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Touch-device active feedback (replaces hover effects) */
+@media (hover: none) {
+  .btn:active { transform: scale(0.97); box-shadow: none !important; opacity: .88; }
+  .btn.ghost:active { border-color: var(--accent); color: var(--accent); }
+  .card:active { box-shadow: 0 10px 24px -14px rgba(60,45,25,.3); }
+  .contact-chip:active { border-color: var(--accent); color: var(--accent); transform: none; }
+  .nav-links a:active { color: var(--accent) !important; }
+  .wax-seal:active { transform: translate(-50%, -2px) scale(1.06) rotate(-2deg); }
+  .scroll-toggle:active { border-color: var(--accent); color: var(--accent); }
+  .faq-q:active { color: var(--accent); }
+  .gallery .ph:active { transform: scale(1.01); }
+}
+
+/* ============================================================
+   MOBILE NAV (≤ 940px)
+   ============================================================ */
+@media (max-width: 940px) {
+  /* Hide desktop theme switch from header; it lives in the overlay instead */
+  .nav-theme-desktop { display: none !important; }
+
+  /* Overlay: room for header + theme switch at bottom */
+  .nav-links {
+    padding-top: 80px;
+    padding-bottom: 48px;
+    gap: 22px;
+    justify-content: center;
+  }
+
+  /* Mobile theme switch row at bottom of overlay */
+  .nav-mobile-theme {
+    display: flex !important;
+    justify-content: center;
+    padding-top: 24px;
+    margin-top: 12px;
+    border-top: 1px solid var(--line);
+    list-style: none;
+  }
+  .nav-mobile-theme .theme-switch {
+    padding: 5px;
+    gap: 4px;
+  }
+  .nav-mobile-theme .theme-switch button {
+    font-size: 11px;
+    letter-spacing: .14em;
+    padding: 10px 20px;
+  }
+}
+
+/* Hide mobile theme item from desktop nav */
+@media (min-width: 941px) {
+  .nav-mobile-theme { display: none !important; }
+}
+
+/* ============================================================
+   TABLET / LANDSCAPE (≤ 860px)
+   ============================================================ */
+@media (max-width: 860px) {
+  /* Tighten gutter slightly */
+  :root { --gutter: clamp(18px, 4vw, 56px); }
+
+  /* Section headings */
+  .sec-head .script { font-size: clamp(38px, 9vw, 68px); }
+  .sec-head { margin-bottom: clamp(36px, 6vw, 64px); }
+
+  /* Page heroes */
+  .page-hero { padding-block: clamp(110px, 17vw, 200px) clamp(32px, 5vw, 60px); }
+  .page-hero .script { font-size: clamp(44px, 11vw, 96px); }
+  .page-hero h1 { font-size: clamp(24px, 5vw, 44px); }
+
+  /* Hero */
+  .hero-inner { padding-block: 100px 60px; }
+
+  /* Activities: price on its own line */
+  .act { flex-wrap: wrap; align-items: flex-start; }
+  .act .nm { flex: 1 1 auto; }
+
+  /* People grid tighter */
+  .people { gap: clamp(14px, 2.5vw, 28px); }
+
+  /* KV */
+  .kv { gap: 8px 18px; }
+
+  /* Callout */
+  .callout { padding: clamp(24px, 4.5vw, 48px) clamp(20px, 4vw, 40px); }
+
+  /* Info rows tighten */
+  .info-row { gap: 10px 36px; padding: 28px 0; }
+  .info-row h4 { font-size: 22px; }
+}
+
+/* ============================================================
+   SMALL PHONES (≤ 540px)
+   ============================================================ */
+@media (max-width: 540px) {
+  /* Tightest gutter */
+  :root { --gutter: 18px; }
+
+  /* ---------- Hero ---------- */
+  .hero .names { font-size: clamp(44px, 12.5vw, 70px); }
+  .hero-inner { padding-block: 88px 52px; min-height: clamp(560px, 100svh, 860px); }
+  .hero .eyebrow { font-size: 10.5px; letter-spacing: .28em; }
+  .hero .meta .line { font-size: 10px; letter-spacing: .22em; }
+
+  /* ---------- Countdown ---------- */
+  .countdown { gap: clamp(8px, 3.5vw, 18px); margin-top: 28px; }
+  .cd-unit { min-width: 38px; }
+  .cd-unit b { font-size: clamp(24px, 6.5vw, 36px); }
+  .cd-unit span { font-size: 7.5px; letter-spacing: .14em; margin-top: 7px; }
+  .cd-unit + .cd-unit::before { left: calc(-1 * clamp(4px, 1.75vw, 9px)); }
+  .cd-label { font-size: 13px; }
+
+  /* ---------- Button rows ---------- */
+  .btn-row { flex-direction: column; align-items: stretch; }
+  .btn-row .btn, .btn-row a.btn { text-align: center; justify-content: center; width: 100%; }
+
+  /* ---------- Section padding ---------- */
+  .section-pad { padding-block: clamp(52px, 12vw, 96px); }
+
+  /* ---------- Cards ---------- */
+  .card .body { padding: 20px 16px; }
+  .card h3 { font-size: clamp(22px, 5.5vw, 30px); }
+  .event-card .where { font-size: 16px; }
+  .event-card .tag { font-size: 9px; margin-bottom: 10px; }
+
+  /* ---------- Envelope (Save the Date) ---------- */
+  .envelope-stage { max-width: min(100%, 340px); }
+  .env-card { padding: 14px 12px; }
+  .env-card .stamp { font-size: clamp(22px, 6.5vw, 32px); }
+  .env-card .eyebrow { font-size: 9px; }
+  .env-card .when { font-size: clamp(14px, 4.2vw, 20px); margin-top: 8px; }
+  .env-card .where { font-size: 12.5px; margin-top: 2px; }
+  .env-hint { font-size: 13px; }
+  .env-trigger { margin-top: 20px; }
+
+  /* ---------- Parchment scroll ---------- */
+  .scroll-stage { padding: 0; }
+  .wax-seal { width: 72px; height: 72px; }
+  .wax-seal .seal-mono { font-size: 28px; }
+  .wax-seal::after { inset: 6px; }
+  .paper-inner { padding: 30px 18px 34px; }
+  .paper-inner h3 { font-size: clamp(20px, 5.5vw, 30px); }
+  .paper-inner p { font-size: clamp(14px, 3.8vw, 17px); max-width: 100%; }
+  .paper-inner .s-amp { font-size: clamp(44px, 11vw, 64px); }
+  .paper-inner .s-sign { font-size: clamp(34px, 9vw, 48px); }
+  .scroll-toggle { width: 100%; justify-content: center; }
+  .scroll-hint { font-size: 14px; }
+
+  /* ---------- Timeline ---------- */
+  .timeline { padding-left: 0; }
+  .tl-item { padding-left: 46px; padding-bottom: clamp(28px, 6vw, 44px); }
+  .tl-item h3 { font-size: clamp(20px, 5.5vw, 28px); }
+  .tl-item .tl-where { font-size: 15px; }
+  .tl-item p { font-size: 14.5px; }
+
+  /* ---------- People / bridal party ---------- */
+  .people { grid-template-columns: repeat(auto-fill, minmax(106px, 1fr)); gap: 14px 12px; }
+  .person .name { font-size: 16px; }
+  .person .role { font-size: 8.5px; letter-spacing: .2em; }
+  .person .avatar { margin-bottom: 10px; }
+
+  /* ---------- Info rows ---------- */
+  .info-row { padding: 22px 0; gap: 8px; }
+  .info-row h4 { font-size: 19px; }
+
+  /* ---------- Contact chips ---------- */
+  .contact-chip { font-size: 12px; padding: 10px 13px; }
+  .chip-row { gap: 8px; }
+
+  /* ---------- Callout ---------- */
+  .callout { padding: 26px 18px; }
+  .callout .big { font-size: clamp(36px, 9vw, 54px); }
+  .callout .sub { font-size: 13.5px; }
+
+  /* ---------- Activities ---------- */
+  .act { flex-direction: column; gap: 2px; padding: 20px 0; }
+  .act .pr { font-size: clamp(18px, 4.5vw, 24px); }
+  .act .nm { font-size: clamp(18px, 4.5vw, 24px); }
+  .act .nm small { font-size: 11px; margin-top: 2px; }
+
+  /* ---------- Gallery ---------- */
+  .gallery { column-gap: 12px; }
+  .gallery .ph { margin-bottom: 12px; }
+
+  /* ---------- Lightbox ---------- */
+  .lb-nav { width: 44px; height: 44px; font-size: 22px; }
+  .lb-close { width: 42px; height: 42px; font-size: 22px; }
+  .lb-cap { font-size: 11px; }
+
+  /* ---------- RSVP / Forms ---------- */
+  .field input, .field select, .field textarea { padding: 14px 2px; font-size: 16px; }
+  .field label { font-size: 10px; letter-spacing: .18em; margin-bottom: 10px; }
+  .seg { gap: 8px; }
+  .seg label { padding: 14px 8px; font-size: 13px; min-width: 0; flex: 1 1 calc(50% - 4px); }
+  .rsvp-confirm .script { font-size: clamp(36px, 10vw, 72px); }
+
+  /* ---------- FAQ ---------- */
+  .faq-q { font-size: clamp(16px, 4.5vw, 22px); padding: 22px 38px 22px 0; }
+  .faq-q::after { right: 4px; width: 12px; }
+  .faq-q::before { right: 9px; height: 12px; }
+  .faq-a > div { padding: 0 0 22px 0; font-size: 14.5px; }
+
+  /* ---------- Footer ---------- */
+  .site-footer { padding-block: clamp(56px, 10vw, 96px); }
+  .site-footer .flinks { gap: 12px 20px; }
+  .site-footer .flinks a { font-size: 9px; letter-spacing: .16em; }
+  .site-footer .credit { font-size: 13px; margin-top: 30px; }
+
+  /* ---------- Lede ---------- */
+  .lede { font-size: clamp(18px, 5vw, 24px); }
+
+  /* ---------- Scroll progress bar ---------- */
+  .scroll-progress { height: 2px; }
+
+  /* ---------- Section header ---------- */
+  .sec-head .script { font-size: clamp(36px, 10vw, 60px); }
+  .sec-head p { font-size: 14.5px; }
+}
+
+/* ============================================================
+   TINY PHONES (≤ 380px)
+   ============================================================ */
+@media (max-width: 380px) {
+  :root { --gutter: 14px; }
+  .hero .names { font-size: clamp(40px, 11vw, 56px); }
+  .countdown { gap: 6px; }
+  .cd-unit b { font-size: 22px; }
+  .cd-unit span { font-size: 7px; }
+  .nav { padding-inline: 14px; }
+  .brand .mono { font-size: 26px; }
+}
+
+/* ============================================================
+   LANDSCAPE MOBILE (short viewport, wide screen)
+   ============================================================ */
+@media (max-width: 860px) and (orientation: landscape) and (max-height: 500px) {
+  .hero-inner { min-height: 100svh; padding-block: 72px 36px; }
+  .hero .names { font-size: clamp(36px, 7vh, 60px); }
+  .countdown { margin-top: 12px; gap: 14px; }
+  .cd-unit b { font-size: clamp(20px, 5vh, 32px); }
+  .scroll-cue { display: none; }
+  .page-hero { padding-block: clamp(80px, 12vh, 160px) clamp(20px, 4vh, 48px); }
+}
