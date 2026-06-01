@@ -13,10 +13,17 @@
 </head>
 <body data-page="home">
 
-<!-- ============ HERO ============ -->
-<section class="hero" data-screen-label="Accueil - Héros">
+<!-- ============ HERO DIVISÉ ============ -->
+<section class="hero hero-split" data-screen-label="Accueil - Héros">
   <div class="petals"></div>
-  <div class="wrap hero-inner">
+
+  <!-- Photo côté gauche -->
+  <div class="hs-photo">
+    <img src="assets/images/couple-10-formal-color.jpg" alt="Sifa &amp; Tommy" loading="eager" />
+  </div>
+
+  <!-- Contenu côté droit -->
+  <div class="hs-content">
     <p class="eyebrow intro d1">Nous nous marions</p>
     <h1 class="names intro d2">Sifa<span class="amp">&amp;</span>Tommy</h1>
     <div class="meta intro d3">
@@ -25,34 +32,16 @@
     </div>
     <div class="countdown intro d4" data-countdown></div>
     <p class="cd-label intro d4" data-countdown-label></p>
-    <div class="btn-row intro d5" style="margin-top:42px; justify-content:center;">
+    <div class="btn-row intro d5" style="margin-top:40px;">
       <a class="btn" href="rsvp.html"><span>RSVP</span></a>
       <a class="btn ghost" href="details.html">Les C&eacute;l&eacute;brations</a>
     </div>
-  </div>
-  <div class="scroll-cue intro d5"><span class="t">D&eacute;filer</span><span class="l"></span></div>
-</section>
-
-<!-- ============ COUPLE PHOTO ============ -->
-<section class="section-pad" data-screen-label="Accueil - Les mariés">
-  <div class="wrap grid two" style="align-items:center; gap:clamp(32px,5vw,72px);">
-    <div class="photo-wrap tall reveal" style="border-radius:var(--radius);">
-      <img src="assets/images/couple-10-formal-color.jpg" alt="Sifa &amp; Tommy" loading="eager" style="object-position:top center;" />
-    </div>
-    <div class="reveal d1" style="text-align:center;">
-      <span class="script" style="font-size:clamp(52px,9vw,96px); display:block; line-height:1.1;">Sifa<span class="amp">&amp;</span>Tommy</span>
-      <div class="divider" style="margin:22px auto;"></div>
-      <p class="eyebrow">30.10.2026 &nbsp;&middot;&nbsp; 28.11.2026</p>
-      <p style="margin-top:24px; font-family:var(--font-serif); font-style:italic; font-size:clamp(17px,2.2vw,22px); color:var(--ink-soft); line-height:1.7;">&laquo;&nbsp;Nos &acirc;mes semblent s&rsquo;&ecirc;tre rencontr&eacute;es bien avant nous.&nbsp;&raquo;</p>
-      <div class="btn-row" style="margin-top:34px; justify-content:center;">
-        <a class="btn ghost" href="story.html">Notre Histoire</a>
-      </div>
-    </div>
+    <div class="scroll-cue intro d5"><span class="t">D&eacute;filer</span><span class="l"></span></div>
   </div>
 </section>
 
 <!-- ============ BIENVENUE ============ -->
-<section class="section-pad alt-bg">
+<section class="section-pad">
   <div class="wrap narrow center">
     <p class="eyebrow reveal">Bienvenue</p>
     <div class="reveal" aria-hidden="true">
@@ -66,13 +55,13 @@
         <circle cx="110" cy="20" r="3.2"></circle>
       </svg>
     </div>
-    <p class="lede reveal">Deux villes, deux cultures, une seule histoire d'amour.</p>
+    <p class="lede reveal">Deux villes, deux cultures, une seule histoire d&rsquo;amour.</p>
     <p class="reveal d1" style="margin-top:24px;">Nous sommes si heureux que vous soyez ici, pour c&eacute;l&eacute;brer avec nous sur les rives de Lubumbashi et les sables de Zanzibar. Vous trouverez ici tout le n&eacute;cessaire&nbsp;: le programme des c&eacute;l&eacute;brations, les informations de voyage et d&rsquo;h&eacute;bergement, ainsi que comment confirmer votre pr&eacute;sence.</p>
   </div>
 </section>
 
 <!-- ============ SAVE THE DATE ENVELOPE ============ -->
-<section class="section-pad" data-screen-label="Accueil - Save the Date">
+<section class="section-pad alt-bg" data-screen-label="Accueil - Save the Date">
   <div class="wrap center">
     <div class="sec-head reveal">
       <span class="script">Save the Date</span>
@@ -98,7 +87,7 @@
 </section>
 
 <!-- ============ LES DEUX CÉLÉBRATIONS ============ -->
-<section class="section-pad alt-bg" data-screen-label="Accueil - Célébrations">
+<section class="section-pad" data-screen-label="Accueil - Célébrations">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="script">Deux C&eacute;l&eacute;brations</span>
@@ -138,7 +127,7 @@
 </section>
 
 <!-- ============ NOTRE HISTOIRE ============ -->
-<section class="section-pad" data-screen-label="Accueil - Notre histoire">
+<section class="section-pad alt-bg" data-screen-label="Accueil - Notre histoire">
   <div class="wrap grid two" style="align-items:center;">
     <div class="photo-wrap tall reveal" data-parallax="0.08" style="border-radius:var(--radius);">
       <img src="assets/images/couple-1-portrait.jpg" alt="Sifa &amp; Tommy" loading="lazy" style="object-position:top center;" />
@@ -156,7 +145,7 @@
 </section>
 
 <!-- ============ RSVP ============ -->
-<section class="section-pad alt-bg center">
+<section class="section-pad center">
   <div class="wrap narrow">
     <span class="script reveal" style="font-size:clamp(52px,9vw,92px); display:block; line-height:1;">Serez-vous des n&ocirc;tres&nbsp;?</span>
     <div class="divider reveal d1"></div>

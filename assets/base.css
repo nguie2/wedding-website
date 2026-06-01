@@ -173,6 +173,60 @@ body.menu-open .menu-btn span::after { top:0; transform: rotate(-45deg); }
 .hero-inner { display: grid; place-items: center; text-align: center; min-height: clamp(620px, 100svh, 1000px); padding-block: 120px 80px; }
 .hero .eyebrow { font-size: 12px; }
 
+/* ---------- Split hero (homepage) ---------- */
+.hero.hero-split {
+  display: grid;
+  grid-template-columns: 44% 56%;
+  min-height: 100svh;
+  align-items: stretch;
+}
+.hs-photo {
+  position: relative;
+  overflow: hidden;
+}
+.hs-photo img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.hs-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(100px,10vh,160px) clamp(44px,5vw,88px) clamp(70px,7vh,110px);
+  position: relative;
+  z-index: 2;
+}
+/* left-align meta, countdown and buttons inside split */
+.hero.hero-split .meta { align-items: flex-start; }
+.hero.hero-split .countdown { justify-content: flex-start; margin-top: 36px; }
+.hero.hero-split .cd-label { text-align: left; }
+.hero.hero-split .btn-row { justify-content: flex-start; }
+/* petals stay in the right panel */
+.hero.hero-split .petals { left: 44%; right: 0; }
+/* scroll-cue inside content panel */
+.hero.hero-split .scroll-cue { position: absolute; bottom: 28px; left: 50%; }
+
+@media (max-width: 860px) {
+  .hero.hero-split {
+    grid-template-columns: 1fr;
+    grid-template-rows: clamp(280px,56vw,440px) auto;
+    min-height: auto;
+  }
+  .hs-content {
+    padding: clamp(40px,6vw,64px) clamp(20px,5vw,36px) clamp(60px,8vw,90px);
+    align-items: center;
+    text-align: center;
+  }
+  .hero.hero-split .meta { align-items: center; }
+  .hero.hero-split .countdown { justify-content: center; }
+  .hero.hero-split .cd-label { text-align: center; }
+  .hero.hero-split .btn-row { justify-content: center; }
+  .hero.hero-split .petals { left: 0; }
+}
+
 .hero .names {
   font-family: var(--font-script);
   font-weight: 400;
