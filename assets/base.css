@@ -736,20 +736,19 @@ body.menu-open .menu-btn span::after { top:0; transform: rotate(-45deg); }
   .hero .eyebrow { font-size: 10.5px; letter-spacing: .28em; }
   .hero .meta .line { font-size: 10px; letter-spacing: .22em; }
 
-  /* Hero couple — 3-column, photos fill viewport height like desktop */
+  /* Hero couple — proportional photos, centered in viewport */
   .hero-couple {
-    padding-block: 60px 0;
-    justify-content: flex-start;
+    padding-block: 60px 28px;
+    justify-content: center;
   }
   .hero-couple-grid {
-    grid-template-columns: 0.9fr 1.8fr 0.9fr;
-    gap: 6px;
+    grid-template-columns: 1fr 1.3fr 1fr;
+    gap: 8px;
     align-items: center;
-    min-height: calc(100svh - 60px);
   }
   .hc-photo .photo-wrap,
   .hc-photo-2 .photo-wrap {
-    height: calc(100svh - 80px);
+    height: 52vw;
     aspect-ratio: unset;
   }
   .hc-names { font-size: clamp(22px, 7.5vw, 36px); }
