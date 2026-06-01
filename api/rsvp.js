@@ -127,7 +127,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: "Sifa & Tommy RSVP <onboarding@resend.dev>",
-        to: ["natachatshombe@gmail.com"],
+        to: ["jeanrochangoue@gmail.com"],
         reply_to: email || undefined,
         subject: `RSVP • ${name} — ${attending_yes ? "✓ Présent·e" : "✗ Absent·e"}`,
         html
