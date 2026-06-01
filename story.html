@@ -1,33 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="elegant">
+<html lang="fr" data-theme="elegant">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Our Story | Sifa &amp; Tommy</title>
-<meta name="description" content="How Sifa &amp; Tommy met, fell in love, and found their way back to each other." />
+<title>Notre Histoire | Sifa &amp; Tommy</title>
+<meta name="description" content="Comment Sifa &amp; Tommy se sont rencontr&eacute;s, tomb&eacute;s amoureux et retrouv&eacute;s l&rsquo;un l&rsquo;autre." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Mulish:wght@300;400;500&family=Tangerine:wght@400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/base.css" />
 <link rel="stylesheet" href="assets/theme-elegant.css" />
-<link rel="stylesheet" href="assets/theme-dolce.css" />
 </head>
 <body data-page="story">
 
-<section class="page-hero" data-screen-label="Our Story - Hero">
+<section class="page-hero" data-screen-label="Notre Histoire - Héros">
   <div class="wrap">
-    <span class="script intro d1">Our Story</span>
-    <h1 class="intro d2">How two souls found their way</h1>
-    <p class="intro d3">Notre histoire &middot; Comment deux &acirc;mes se sont retrouv&eacute;es</p>
+    <span class="script intro d1">Notre Histoire</span>
+    <h1 class="intro d2">Comment deux &acirc;mes se sont retrouv&eacute;es</h1>
+    <p class="intro d3">La rencontre de deux &acirc;mes destin&eacute;es l&rsquo;une &agrave; l&rsquo;autre.</p>
   </div>
 </section>
 
-<!-- ============ INTERACTIVE STORY SCROLL ============ -->
-<section class="section-pad" data-screen-label="Our Story - Scroll">
+<!-- ============ PARCHEMIN ============ -->
+<section class="section-pad" data-screen-label="Notre Histoire - Parchemin">
   <div class="wrap center">
     <div class="sec-head reveal">
-      <span class="script">Our Story</span>
-      <span class="eyebrow">Notre histoire &middot; Break the seal to begin</span>
+      <span class="script">Notre Histoire</span>
+      <span class="eyebrow">Brisez le sceau pour commencer</span>
     </div>
 
     <div class="scroll-stage reveal">
@@ -35,70 +34,68 @@
         <div class="rod top"><span class="finial l"></span><span class="finial r"></span></div>
         <div class="paper">
           <div class="paper-inner">
-            <p class="s-eyebrow">Once upon a time</p>
-            <h3>How two souls found their way</h3>
+            <p class="s-eyebrow">Il &eacute;tait une fois</p>
+            <h3>Comment deux &acirc;mes se sont retrouv&eacute;es</h3>
             <span class="s-amp">&amp;</span>
-            <p>Tommy and Sifa met when they were very young, Sifa was only fourteen. They started as best friends, and over the years that friendship slowly, quietly turned into love.</p>
-            <p>Before Sifa left for South Africa, they had already built a special connection, and somehow life always kept bringing them back to each other. No matter where the years took them, they always found their way home to one another.</p>
+            <p>Tommy et Sifa se sont rencontr&eacute;s tr&egrave;s jeunes, Sifa n&rsquo;avait que quatorze ans. D&rsquo;abord meilleurs amis, leur amiti&eacute; s&rsquo;est peu &agrave; peu, silencieusement, transform&eacute;e en amour.</p>
+            <p>Avant que Sifa ne parte pour l&rsquo;Afrique du Sud, ils avaient d&eacute;j&agrave; tiss&eacute; un lien unique, et la vie les a toujours ramen&eacute;s l&rsquo;un vers l&rsquo;autre. Peu importe o&ugrave; les ann&eacute;es les menaient, ils retrouvaient toujours leur chemin l&rsquo;un vers l&rsquo;autre.</p>
             <div class="s-rule"></div>
-            <p class="italic">It truly feels like they were meant for each other, as if their souls had already met long before they did. Their story has always been about timing, destiny, friendship, and a love that never faded.</p>
-            <p class="italic" style="font-size:.92em; color:#6a532f;">Leur histoire a toujours &eacute;t&eacute; faite de destin, d'amiti&eacute;, et d'un amour qui n'a jamais fan&eacute;.</p>
+            <p class="italic">On a vraiment l&rsquo;impression qu&rsquo;ils &eacute;taient faits l&rsquo;un pour l&rsquo;autre, comme si leurs &acirc;mes s&rsquo;&eacute;taient rencontr&eacute;es bien avant eux. Leur histoire a toujours &eacute;t&eacute; faite de destin, d&rsquo;amiti&eacute;, et d&rsquo;un amour qui n&rsquo;a jamais fan&eacute;.</p>
             <div class="s-sign">Sifa &amp; Tommy</div>
           </div>
         </div>
         <div class="rod bottom"><span class="finial l"></span><span class="finial r"></span></div>
-        <button class="wax-seal" id="storySeal" type="button" aria-expanded="false" aria-controls="storyScroll" aria-label="Unseal our story">
+        <button class="wax-seal" id="storySeal" type="button" aria-expanded="false" aria-controls="storyScroll" aria-label="Ouvrir notre histoire">
           <span class="seal-mono">S<span class="amp">&amp;</span>T</span>
         </button>
       </div>
-      <p class="scroll-hint">Click the wax seal to unroll our story &middot; <span class="fr" style="display:inline">Cliquez sur le sceau</span></p>
-      <button class="scroll-toggle" id="storyToggle" type="button">Unseal our story <span class="tg-secondary">&middot; Ouvrir</span></button>
+      <p class="scroll-hint">Cliquez sur le sceau pour d&eacute;rouler notre histoire</p>
+      <button class="scroll-toggle" id="storyToggle" type="button">D&eacute;sceller notre histoire <span class="tg-secondary">&middot; Ouvrir</span></button>
     </div>
   </div>
 </section>
 
-<!-- ============ PHOTO MOMENT ============ -->
+<!-- ============ PHOTO ============ -->
 <section class="section-pad alt-bg center">
   <div class="wrap narrow">
     <div class="photo-wrap wide reveal" data-parallax="0.06" style="border-radius:var(--radius);">
-      <img src="assets/images/couple-4-silhouette.jpg" alt="Sifa &amp; Tommy" loading="lazy" />
+      <img src="assets/images/couple-4-silhouette.jpg" alt="Sifa &amp; Tommy" loading="lazy" style="object-position:top center;" />
     </div>
-    <p class="lede reveal d1" style="margin-top:32px;">&ldquo;Best friends first, and forever after.&rdquo;</p>
-    <p class="fr reveal d1" style="margin-top:10px;">Meilleurs amis d'abord, et pour toujours.</p>
+    <p class="lede reveal d1" style="margin-top:32px;">&laquo;&nbsp;Meilleurs amis d&rsquo;abord, et pour toujours.&nbsp;&raquo;</p>
   </div>
 </section>
 
-<!-- ============ BRIDAL PARTY ============ -->
-<section class="section-pad" data-screen-label="Our Story - Bridal Party">
+<!-- ============ LE CORTÈGE ============ -->
+<section class="section-pad" data-screen-label="Notre Histoire - Le Cortège">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="script">The Wedding Party</span>
-      <span class="eyebrow">Le cort&egrave;ge &middot; Those who stand beside us</span>
+      <span class="script">Le Cort&egrave;ge</span>
+      <span class="eyebrow">Ceux qui se tiennent &agrave; nos c&ocirc;t&eacute;s</span>
     </div>
 
-    <h3 class="center reveal" style="font-family:var(--font-serif); font-style:italic; font-size:clamp(24px,3vw,32px); margin-bottom:30px;">Bridesmaids &middot; Demoiselles d'honneur</h3>
+    <h3 class="center reveal" style="font-family:var(--font-serif); font-style:italic; font-size:clamp(24px,3vw,32px); margin-bottom:30px;">Demoiselles d&rsquo;honneur</h3>
     <div class="people reveal" style="margin-bottom:72px;">
-      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Candy Monga</div><div class="role">Bridesmaid</div></div>
-      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Mimi Nkulu Kisimba</div><div class="role">Bridesmaid</div></div>
-      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Clea Kisimba</div><div class="role">Bridesmaid</div></div>
+      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Candy Monga</div><div class="role">Demoiselle d&rsquo;honneur</div></div>
+      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Mimi Nkulu Kisimba</div><div class="role">Demoiselle d&rsquo;honneur</div></div>
+      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Clea Kisimba</div><div class="role">Demoiselle d&rsquo;honneur</div></div>
     </div>
 
-    <h3 class="center reveal" style="font-family:var(--font-serif); font-style:italic; font-size:clamp(24px,3vw,32px); margin-bottom:30px;">Groomsmen &middot; Gar&ccedil;ons d'honneur</h3>
+    <h3 class="center reveal" style="font-family:var(--font-serif); font-style:italic; font-size:clamp(24px,3vw,32px); margin-bottom:30px;">Gar&ccedil;ons d&rsquo;honneur</h3>
     <div class="people reveal" style="margin-bottom:72px;">
-      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Issac</div><div class="role">Groomsman</div></div>
-      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Hakim</div><div class="role">Groomsman</div></div>
+      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Issac</div><div class="role">Gar&ccedil;on d&rsquo;honneur</div></div>
+      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Hakim</div><div class="role">Gar&ccedil;on d&rsquo;honneur</div></div>
     </div>
 
-    <h3 class="center reveal" style="font-family:var(--font-serif); font-style:italic; font-size:clamp(24px,3vw,32px); margin-bottom:30px;">Flower Men &middot; Les porteurs de fleurs</h3>
+    <h3 class="center reveal" style="font-family:var(--font-serif); font-style:italic; font-size:clamp(24px,3vw,32px); margin-bottom:30px;">Porteurs de fleurs</h3>
     <div class="people reveal">
-      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Gilbert Kisimba</div><div class="role">Flower Man</div></div>
-      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Jean Serge Kisimba</div><div class="role">Flower Man</div></div>
-      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Joseph Kisimba</div><div class="role">Flower Man</div></div>
-      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Alain Kisimba</div><div class="role">Flower Man</div></div>
-      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Henri Kisimba</div><div class="role">Flower Man</div></div>
-      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Claude Kisimba</div><div class="role">Flower Man</div></div>
-      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Kevin Monga</div><div class="role">Flower Man</div></div>
-      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Brian Bulaya</div><div class="role">Flower Man</div></div>
+      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Gilbert Kisimba</div><div class="role">Porteur de fleurs</div></div>
+      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Jean Serge Kisimba</div><div class="role">Porteur de fleurs</div></div>
+      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Joseph Kisimba</div><div class="role">Porteur de fleurs</div></div>
+      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Alain Kisimba</div><div class="role">Porteur de fleurs</div></div>
+      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Henri Kisimba</div><div class="role">Porteur de fleurs</div></div>
+      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Claude Kisimba</div><div class="role">Porteur de fleurs</div></div>
+      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Kevin Monga</div><div class="role">Porteur de fleurs</div></div>
+      <div class="person"><div class="ph avatar" data-label="Photo"></div><div class="name">Brian Bulaya</div><div class="role">Porteur de fleurs</div></div>
     </div>
   </div>
 </section>

@@ -1,5 +1,5 @@
 /* ============================================================
-   Sifa & Tommy, shared site script (v2)
+   Sifa & Tommy, shared site script
    ============================================================ */
 (function () {
   "use strict";
@@ -9,26 +9,14 @@
     religious: { date: "2026-11-28T15:00:00" }
   };
 
-  /* ---- Theme ---- */
-  var THEME_KEY = "st-theme";
-  function getTheme() { return localStorage.getItem(THEME_KEY) || "elegant"; }
-  function setTheme(t) {
-    document.documentElement.setAttribute("data-theme", t);
-    localStorage.setItem(THEME_KEY, t);
-    document.querySelectorAll(".theme-switch button").forEach(function (b) {
-      b.classList.toggle("on", b.dataset.theme === t);
-    });
-  }
-  document.documentElement.setAttribute("data-theme", getTheme());
-
   var NAV = [
-    { key: "home",     href: "index.html",    label: "Home" },
-    { key: "story",    href: "story.html",    label: "Our Story" },
-    { key: "details",  href: "details.html",  label: "The Day" },
-    { key: "travel",   href: "travel.html",   label: "Travel & Stay" },
-    { key: "gallery",  href: "gallery.html",  label: "Gallery" },
-    { key: "registry", href: "registry.html", label: "Registry" },
-    { key: "faq",      href: "faq.html",      label: "FAQ" },
+    { key: "home",     href: "index.html",    label: "Accueil" },
+    { key: "story",    href: "story.html",    label: "Notre Histoire" },
+    { key: "details",  href: "details.html",  label: "Les Célébrations" },
+    { key: "travel",   href: "travel.html",   label: "Voyage & Séjour" },
+    { key: "gallery",  href: "gallery.html",  label: "Galerie" },
+    { key: "registry", href: "registry.html", label: "Cadeaux" },
+    { key: "faq",      href: "faq.html",      label: "Questions" },
     { key: "rsvp",     href: "rsvp.html",     label: "RSVP" }
   ];
 
@@ -37,14 +25,6 @@
     var links = NAV.map(function (n) {
       return '<li><a class="' + (n.key === page ? "active" : "") + '" href="' + n.href + '">' + n.label + "</a></li>";
     }).join("");
-    // Mobile theme switcher injected inside the full-screen overlay
-    links +=
-      '<li class="nav-mobile-theme">' +
-        '<div class="theme-switch" role="group" aria-label="Choose style">' +
-          '<button data-theme="elegant" type="button">Elegant</button>' +
-          '<button data-theme="dolce" type="button">Dolce Vita</button>' +
-        "</div>" +
-      "</li>";
 
     var header = document.createElement("header");
     header.className = "site-header";
@@ -56,24 +36,16 @@
         "</a>" +
         '<ul class="nav-links">' + links + "</ul>" +
         '<div class="nav-right">' +
-          '<div class="theme-switch nav-theme-desktop" role="group" aria-label="Choose style">' +
-            '<button data-theme="elegant" type="button">Elegant</button>' +
-            '<button data-theme="dolce" type="button">Dolce&nbsp;Vita</button>' +
-          "</div>" +
           '<button class="menu-btn" aria-label="Menu" type="button"><span></span></button>' +
         "</div>" +
       "</nav>";
     document.body.prepend(header);
 
-    header.querySelectorAll(".theme-switch button").forEach(function (b) {
-      b.addEventListener("click", function () { setTheme(b.dataset.theme); });
-    });
     var mb = header.querySelector(".menu-btn");
     mb.addEventListener("click", function () { document.body.classList.toggle("menu-open"); });
     header.querySelectorAll(".nav-links a").forEach(function (a) {
       a.addEventListener("click", function () { document.body.classList.remove("menu-open"); });
     });
-    setTheme(getTheme());
 
     function onScroll(){ header.classList.toggle("scrolled", window.scrollY > 40); }
     onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
@@ -87,13 +59,13 @@
         '<div class="script reveal">Sifa <span class="amp">&amp;</span> Tommy</div>' +
         '<p class="dt reveal">Lubumbashi &middot; 30.10.2026 &nbsp;&middot;&nbsp; Zanzibar &middot; 28.11.2026</p>' +
         '<div class="flinks reveal">' +
-          '<a href="story.html">Our Story</a>' +
-          '<a href="details.html">The Day</a>' +
-          '<a href="travel.html">Travel &amp; Stay</a>' +
-          '<a href="gallery.html">Gallery</a>' +
+          '<a href="story.html">Notre Histoire</a>' +
+          '<a href="details.html">Les Célébrations</a>' +
+          '<a href="travel.html">Voyage &amp; Séjour</a>' +
+          '<a href="gallery.html">Galerie</a>' +
           '<a href="rsvp.html">RSVP</a>' +
         "</div>" +
-        '<p class="credit reveal">With love, from our two homes to yours &middot; Avec amour.</p>' +
+        '<p class="credit reveal">Avec amour, de nos deux maisons à la vôtre.</p>' +
       "</div>";
     document.body.appendChild(f);
   }
@@ -103,9 +75,9 @@
     var now = Date.now();
     var civ = new Date(EVENTS.civil.date).getTime();
     var rel = new Date(EVENTS.religious.date).getTime();
-    if (now < civ) return { t: civ, label: "until we say <em>I do</em> in Lubumbashi", labelFr: "avant le « oui » à Lubumbashi" };
-    if (now < rel) return { t: rel, label: "until we say <em>I do</em> in Zanzibar", labelFr: "avant le « oui » à Zanzibar" };
-    return { t: rel, label: "we are married", labelFr: "nous sommes mariés", done: true };
+    if (now < civ) return { t: civ, label: "avant notre &laquo;&nbsp;oui&nbsp;&raquo; à Lubumbashi" };
+    if (now < rel) return { t: rel, label: "avant notre &laquo;&nbsp;oui&nbsp;&raquo; à Zanzibar" };
+    return { t: rel, label: "nous sommes mariés", done: true };
   }
   function initCountdown() {
     var el = document.querySelector("[data-countdown]");
@@ -120,8 +92,8 @@
       var h = Math.floor((diff % 86400000) / 3600000);
       var m = Math.floor((diff % 3600000) / 60000);
       var s = Math.floor((diff % 60000) / 1000);
-      el.innerHTML = unit(d, "Days") + unit(pad(h), "Hours") + unit(pad(m), "Min") + unit(pad(s), "Sec");
-      if (lbl) lbl.innerHTML = ev.label + ' <span class="fr">&middot; ' + ev.labelFr + "</span>";
+      el.innerHTML = unit(d, "Jours") + unit(pad(h), "Heures") + unit(pad(m), "Min") + unit(pad(s), "Sec");
+      if (lbl) lbl.innerHTML = ev.label;
     }
     tick(); setInterval(tick, 1000);
   }
@@ -136,7 +108,7 @@
     els.forEach(function (e) { io.observe(e); });
   }
 
-  /* ---- Parallax (desktop only — skipped on touch/small screens) ---- */
+  /* ---- Parallax (desktop only) ---- */
   function initParallax() {
     if (window.matchMedia("(hover: none)").matches) return;
     if (window.innerWidth < 860) return;
@@ -258,11 +230,11 @@
       } catch (err) {}
 
       var msg = data.attending === "no"
-        ? { en: "Thank you for letting us know", fr: "Merci de nous avoir prévenus.", sub: "We will miss you dearly, but we feel your love from afar." }
-        : { en: "With all our joy", fr: "Avec toute notre joie, nous avons hâte de célébrer avec vous !", sub: "Your reply is saved. Watch your inbox for the official invitation." };
-      confirm.querySelector("[data-c-en]").textContent = msg.en;
-      confirm.querySelector("[data-c-fr]").textContent = msg.fr;
+        ? { title: "Merci de nous avoir prévenus", sub: "Vous nous manquerez, mais nous vous sentons proches de cœur.", note: "Votre réponse a été enregistrée." }
+        : { title: "Avec toute notre joie", sub: "Nous avons hâte de célébrer avec vous !", note: "Votre réponse est enregistrée. Votre invitation officielle suivra bientôt." };
+      confirm.querySelector("[data-c-title]").textContent = msg.title;
       confirm.querySelector("[data-c-sub]").textContent = msg.sub;
+      confirm.querySelector("[data-c-note]").textContent = msg.note;
       form.hidden = true; confirm.hidden = false;
       requestAnimationFrame(function(){ confirm.querySelectorAll(".reveal").forEach(function(r){ r.classList.add("in"); }); });
       window.scrollTo({ top: confirm.getBoundingClientRect().top + window.scrollY - 160, behavior: "smooth" });
@@ -282,13 +254,13 @@
       s.classList.add("is-open");
       paper.style.maxHeight = measure() + "px";
       if (seal) seal.setAttribute("aria-expanded", "true");
-      if (toggle) toggle.innerHTML = "Roll it back up <span class=\"tg-secondary\">&middot; Refermer</span>";
+      if (toggle) toggle.innerHTML = "Refermer le parchemin <span class=\"tg-secondary\">&middot; Fermer</span>";
     }
     function close() {
       s.classList.remove("is-open");
       paper.style.maxHeight = "0px";
       if (seal) seal.setAttribute("aria-expanded", "false");
-      if (toggle) toggle.innerHTML = "Unseal our story <span class=\"tg-secondary\">&middot; Ouvrir</span>";
+      if (toggle) toggle.innerHTML = "Désceller notre histoire <span class=\"tg-secondary\">&middot; Ouvrir</span>";
     }
     function tog() { s.classList.contains("is-open") ? close() : open(); }
     if (seal) seal.addEventListener("click", tog);
@@ -371,7 +343,7 @@
     function toggle() {
       var open = env.classList.toggle("open");
       env.setAttribute("aria-expanded", open ? "true" : "false");
-      if (btn) btn.textContent = open ? "Close the envelope" : "Open the envelope";
+      if (btn) btn.textContent = open ? "Fermer l’enveloppe" : "Ouvrir l’enveloppe";
     }
     env.addEventListener("click", function(e){
       if (e.target.closest("a")) return;
@@ -389,10 +361,10 @@
     if (!items.length) return;
     var box = document.createElement("div");
     box.className = "lightbox";
-    box.innerHTML = '<button class="lb-close" aria-label="Close">&times;</button>' +
-      '<button class="lb-nav lb-prev" aria-label="Previous">&#8249;</button>' +
+    box.innerHTML = '<button class="lb-close" aria-label="Fermer">&times;</button>' +
+      '<button class="lb-nav lb-prev" aria-label="Précédent">&#8249;</button>' +
       '<figure class="lb-figure"><div class="lb-content"></div><figcaption class="lb-cap"></figcaption></figure>' +
-      '<button class="lb-nav lb-next" aria-label="Next">&#8250;</button>';
+      '<button class="lb-nav lb-next" aria-label="Suivant">&#8250;</button>';
     document.body.appendChild(box);
     var content = box.querySelector(".lb-content");
     var cap = box.querySelector(".lb-cap");
@@ -425,7 +397,6 @@
       else if (e.key === "ArrowLeft") go(-1);
       else if (e.key === "ArrowRight") go(1);
     });
-    // Touch swipe for mobile gallery navigation
     var swipeStartX = 0, swipeStartY = 0;
     box.addEventListener("touchstart", function(e) {
       swipeStartX = e.touches[0].clientX;

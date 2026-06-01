@@ -128,14 +128,6 @@ section { position: relative; z-index: 2; }
 
 .nav-right { display: flex; align-items: center; gap: 16px; }
 
-/* theme switcher — quiet, refined */
-.theme-switch { display: inline-flex; align-items: center; gap: 2px; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: color-mix(in srgb, var(--surface) 70%, transparent); }
-.theme-switch button {
-  font-family: var(--font-body); font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; font-weight: 500;
-  border: 0; background: transparent; color: var(--ink-soft); cursor: pointer;
-  padding: 7px 13px; border-radius: 999px; transition: all .4s var(--ease-soft); white-space: nowrap;
-}
-.theme-switch button.on { background: var(--accent); color: var(--accent-contrast); }
 
 .menu-btn { display: none; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; width: 44px; height: 44px; cursor: pointer; align-items: center; justify-content: center; }
 .menu-btn span, .menu-btn span::before, .menu-btn span::after { content:""; display:block; width:16px; height:1.2px; background: var(--ink); position: relative; transition: .35s var(--ease); }
@@ -634,10 +626,7 @@ body.menu-open .menu-btn span::after { top:0; transform: rotate(-45deg); }
    MOBILE NAV (≤ 940px)
    ============================================================ */
 @media (max-width: 940px) {
-  /* Hide desktop theme switch from header; it lives in the overlay instead */
-  .nav-theme-desktop { display: none !important; }
-
-  /* Overlay: room for header + theme switch at bottom */
+  /* Overlay: room for header */
   .nav-links {
     padding-top: 80px;
     padding-bottom: 48px;
@@ -645,30 +634,6 @@ body.menu-open .menu-btn span::after { top:0; transform: rotate(-45deg); }
     justify-content: center;
   }
 
-  /* Mobile theme switch row at bottom of overlay */
-  .nav-mobile-theme {
-    display: flex !important;
-    justify-content: center;
-    padding-top: 24px;
-    margin-top: 12px;
-    border-top: 1px solid var(--line);
-    list-style: none;
-  }
-  .nav-mobile-theme .theme-switch {
-    padding: 5px;
-    gap: 4px;
-  }
-  .nav-mobile-theme .theme-switch button {
-    font-size: 11px;
-    letter-spacing: .14em;
-    padding: 10px 20px;
-  }
-}
-
-/* Hide mobile theme item from desktop nav */
-@media (min-width: 941px) {
-  .nav-mobile-theme { display: none !important; }
-}
 
 /* ============================================================
    TABLET / LANDSCAPE (≤ 860px)
