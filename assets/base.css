@@ -736,36 +736,41 @@ body.menu-open .menu-btn span::after { top:0; transform: rotate(-45deg); }
   .hero .eyebrow { font-size: 10.5px; letter-spacing: .28em; }
   .hero .meta .line { font-size: 10px; letter-spacing: .22em; }
 
-  /* Hero couple — keep 3-column, shrink everything */
-  .hero-couple { padding-block: clamp(58px, 8vh, 80px) clamp(14px, 2vh, 24px); }
+  /* Hero couple — 3-column, photos fill viewport height like desktop */
+  .hero-couple {
+    padding-block: 60px 0;
+    justify-content: flex-start;
+  }
   .hero-couple-grid {
-    grid-template-columns: 1fr 1.8fr 1fr;
-    gap: 5px;
+    grid-template-columns: 0.9fr 1.8fr 0.9fr;
+    gap: 6px;
+    align-items: center;
+    min-height: calc(100svh - 60px);
   }
   .hc-photo .photo-wrap,
   .hc-photo-2 .photo-wrap {
-    height: auto;
-    aspect-ratio: 2 / 3;
+    height: calc(100svh - 80px);
+    aspect-ratio: unset;
   }
-  .hc-names { font-size: clamp(18px, 6vw, 28px); }
+  .hc-names { font-size: clamp(22px, 7.5vw, 36px); }
   .hc-names .amp { font-size: .85em; }
-  .hc-content .eyebrow { font-size: 7px; letter-spacing: .14em; margin-bottom: 6px; }
-  .hc-content .divider { margin: 8px auto; width: 28px; }
-  .hc-content .meta { margin-bottom: 10px; }
-  .hc-content .meta .line { font-size: 8px; letter-spacing: .08em; }
+  .hc-content .eyebrow { font-size: 8px; letter-spacing: .14em; margin-bottom: 8px; }
+  .hc-content .divider { margin: 10px auto; width: 28px; }
+  .hc-content .meta { margin-bottom: 12px; }
+  .hc-content .meta .line { font-size: 9px; letter-spacing: .08em; }
 
   /* ---------- Countdown ---------- */
-  .countdown { gap: 4px; margin-top: 8px; }
+  .countdown { gap: 5px; margin-top: 10px; }
   .cd-unit { min-width: 0; }
-  .cd-unit b { font-size: clamp(14px, 4.5vw, 22px); }
-  .cd-unit span { font-size: 6px; letter-spacing: .1em; margin-top: 4px; }
+  .cd-unit b { font-size: clamp(16px, 5vw, 24px); }
+  .cd-unit span { font-size: 6.5px; letter-spacing: .1em; margin-top: 4px; }
   .cd-unit + .cd-unit::before { left: calc(-1 * clamp(2px, 1vw, 5px)); }
-  .cd-label { font-size: 9px; margin-top: 5px; }
+  .cd-label { font-size: 10px; margin-top: 6px; }
 
   /* ---------- Hero couple buttons ---------- */
-  .hc-content .btn-row { margin-top: 10px; gap: 5px; flex-direction: column; align-items: stretch; }
+  .hc-content .btn-row { margin-top: 14px; gap: 6px; flex-direction: column; align-items: stretch; }
   .hc-content .btn-row .btn, .hc-content .btn-row a.btn {
-    font-size: 9px; padding: 8px 6px; letter-spacing: .1em;
+    font-size: 10px; padding: 9px 8px; letter-spacing: .1em;
     text-align: center; justify-content: center; width: 100%;
   }
 
