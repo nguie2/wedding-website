@@ -678,6 +678,7 @@ body.menu-open .menu-btn span::after { top:0; transform: rotate(-45deg); }
     gap: 22px;
     justify-content: center;
   }
+}  /* end max-width: 940px */
 
 
 /* ============================================================
@@ -698,10 +699,11 @@ body.menu-open .menu-btn span::after { top:0; transform: rotate(-45deg); }
 
   /* Hero */
   .hero-inner { padding-block: 100px 60px; }
-  .hero-couple { padding-block: clamp(72px, 10vh, 100px) clamp(40px, 6vh, 68px); }
-  .hero-couple-grid { grid-template-columns: 1fr 1.2fr 1fr; gap: clamp(16px, 2.5vw, 32px); }
-  .hc-photo .photo-wrap, .hc-photo-2 .photo-wrap { height: clamp(280px, 48vh, 480px); }
-  .hc-names { font-size: clamp(50px, 8vw, 90px); }
+  /* Hero couple — tablet: tighter 3-column, shorter photos */
+  .hero-couple { padding-block: clamp(72px, 10vh, 100px) clamp(36px, 5vh, 60px); }
+  .hero-couple-grid { grid-template-columns: 1fr 1.2fr 1fr; gap: clamp(14px, 2vw, 28px); }
+  .hc-photo .photo-wrap, .hc-photo-2 .photo-wrap { height: clamp(260px, 44vh, 440px); }
+  .hc-names { font-size: clamp(48px, 7.5vw, 86px); }
 
   /* Activities: price on its own line */
   .act { flex-wrap: wrap; align-items: flex-start; }
@@ -724,6 +726,53 @@ body.menu-open .menu-btn span::after { top:0; transform: rotate(-45deg); }
 /* ============================================================
    SMALL PHONES (≤ 540px)
    ============================================================ */
+
+/* ============================================================
+   MOBILE PHONES — Hero couple layout (≤ 620px)
+   Content row above, both photos side-by-side below.
+   Mirrors the desktop concept on a narrow screen.
+   ============================================================ */
+@media (max-width: 620px) {
+  .hero-couple {
+    padding-block: clamp(64px, 9vh, 90px) clamp(20px, 3vh, 36px);
+    justify-content: flex-start;
+  }
+  .hero-couple-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px 10px;
+    align-items: start;
+  }
+  /* Content spans full width on row 1 */
+  .hc-content {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  /* Photo 1 on left, row 2 */
+  .hc-photo {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  /* Photo 2 on right, row 2 — shown (mirrors desktop) */
+  .hc-photo-2 {
+    grid-column: 2;
+    grid-row: 2;
+    display: block;
+    align-self: start;
+  }
+  /* Portrait photos, height driven by width via aspect-ratio */
+  .hc-photo .photo-wrap,
+  .hc-photo-2 .photo-wrap {
+    height: auto;
+    aspect-ratio: 3 / 4;
+  }
+  .hc-names { font-size: clamp(38px, 10vw, 58px); }
+  /* Compact countdown on narrow screens */
+  .countdown { margin-top: 20px; gap: clamp(10px, 3.5vw, 22px); }
+  .cd-unit b { font-size: clamp(26px, 6.5vw, 40px); }
+  /* Buttons side-by-side (override the 540px stacked rule order) */
+}
+
 @media (max-width: 540px) {
   /* Tightest gutter */
   :root { --gutter: 18px; }
@@ -733,11 +782,9 @@ body.menu-open .menu-btn span::after { top:0; transform: rotate(-45deg); }
   .hero-inner { padding-block: 88px 52px; min-height: clamp(560px, 100svh, 860px); }
   .hero .eyebrow { font-size: 10.5px; letter-spacing: .28em; }
   .hero .meta .line { font-size: 10px; letter-spacing: .22em; }
-  /* Couple hero collapses to photo + content stack on small phones */
-  .hero-couple-grid { grid-template-columns: 1fr; }
-  .hc-photo-2 { display: none; }
-  .hc-photo .photo-wrap { height: clamp(200px, 36vh, 300px); }
-  .hc-names { font-size: clamp(44px, 11vw, 68px); }
+  /* Hero couple fine-tuning at small phone size */
+  .hero-couple { padding-block: clamp(58px, 8vh, 80px) clamp(20px, 3vh, 32px); }
+  .hero .meta .line { letter-spacing: .14em; }
 
   /* ---------- Countdown ---------- */
   .countdown { gap: clamp(8px, 3.5vw, 18px); margin-top: 28px; }
@@ -750,6 +797,9 @@ body.menu-open .menu-btn span::after { top:0; transform: rotate(-45deg); }
   /* ---------- Button rows ---------- */
   .btn-row { flex-direction: column; align-items: stretch; }
   .btn-row .btn, .btn-row a.btn { text-align: center; justify-content: center; width: 100%; }
+  /* Hero couple buttons stay side-by-side (they fit at 58px total content width) */
+  .hc-content .btn-row { flex-direction: row; align-items: center; }
+  .hc-content .btn-row .btn, .hc-content .btn-row a.btn { width: auto; }
 
   /* ---------- Section padding ---------- */
   .section-pad { padding-block: clamp(52px, 12vw, 96px); }
