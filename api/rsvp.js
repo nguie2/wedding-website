@@ -7,9 +7,12 @@ module.exports = async function handler(req, res) {
 
   const RESEND_KEY = process.env.RESEND_API_KEY;
   if (!RESEND_KEY) {
-    console.error("RESEND_API_KEY not set");
-    return res.status(500).json({ error: "Email service not configured" });
+    return res.status(500).json({ error: "RESEND_API_KEY not configured in Vercel environment variables" });
   }
+
+  // RSVP_TO_EMAIL env var lets you change recipient without editing code.
+  // Must match the email you used to sign up on resend.com (free plan restriction).
+  const TO_EMAIL = process.env.RSVP_TO_EMAIL || "jeanrochangoue@gmail.com";
 
   const attending_yes = attending === "yes";
 
@@ -68,7 +71,7 @@ module.exports = async function handler(req, res) {
   </div>
 
   <div class="badge">
-    <span class="pill ${attending_yes ? "yes" : "no"}">${attending_yes ? "✓ &nbsp;Présent·e avec joie" : "✗ &nbsp;Absent·e avec regrets"}</span>
+    <span class="pill ${attending_yes ? "yes" : "no"}">${attending_yes ? "Présent·e avec joie" : "Absent·e avec regrets"}</span>
   </div>
 
   <div class="section">
@@ -126,23 +129,25 @@ module.exports = async function handler(req, res) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        from: "Sifa & Tommy RSVP <onboarding@resend.dev>",
-        to: ["jeanrochangoue@gmail.com"],
+        from: "onboarding@resend.dev",
+        to: [TO_EMAIL],
         reply_to: email || undefined,
-        subject: `RSVP • ${name} — ${attending_yes ? "✓ Présent·e" : "✗ Absent·e"}`,
+        subject: `RSVP - ${name} - ${attending_yes ? "Present" : "Absent"}`,
         html
       })
     });
 
+    const resBody = await r.text();
+
     if (!r.ok) {
-      const body = await r.text();
-      console.error("Resend error:", r.status, body);
-      return res.status(502).json({ error: "Email delivery failed" });
+      console.error("Resend error:", r.status, resBody);
+      // Return the actual Resend error so it's visible in the browser console
+      return res.status(502).json({ error: "Email delivery failed", resend_status: r.status, resend_error: resBody });
     }
 
     return res.json({ ok: true });
   } catch (err) {
     console.error("RSVP handler error:", err);
-    return res.status(500).json({ error: "Internal error" });
+    return res.status(500).json({ error: "Internal error", details: err.message });
   }
-}
+};
