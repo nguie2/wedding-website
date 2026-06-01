@@ -244,11 +244,41 @@
         window.scrollTo({ top: confirm.getBoundingClientRect().top + window.scrollY - 160, behavior: "smooth" });
       }
 
-      fetch("/api/rsvp", {
+      var eventsLabel = { lubumbashi: "Lubumbashi — Cérémonie Civile (30 oct. 2026)", zanzibar: "Zanzibar — Cérémonie Religieuse (28 nov. 2026)", both: "Les deux célébrations" }[data.events] || data.events || "—";
+
+      // Web3Forms key — get yours free at web3forms.com (enter jeanrochangoue@gmail.com)
+      var W3F_KEY = "REMPLACER_PAR_CLE_WEB3FORMS";
+
+      fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      }).then(showRsvpConfirm, showRsvpConfirm);
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          access_key: W3F_KEY,
+          subject: "RSVP • " + data.name + " — " + (data.attending === "yes" ? "✓ Présent·e" : "✗ Absent·e"),
+          from_name: "Sifa & Tommy — Site Mariage",
+          name: data.name,
+          email: data.email,
+          "Présence": data.attending === "yes" ? "Oui, présent(e) avec joie" : "Non, absent(e) avec regrets",
+          "Célébration(s)": eventsLabel,
+          "Nombre d'invités": data.guests || "—",
+          "Régime / Allergies": data.diet || "Aucune restriction",
+          "Message": data.message || "—",
+          "Reçu le": data.at
+        })
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(result) {
+        if (result.success) {
+          showRsvpConfirm();
+        } else {
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "Envoyer ma réponse"; }
+          alert("Erreur lors de l'envoi. Veuillez réessayer.");
+        }
+      })
+      .catch(function() {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "Envoyer ma réponse"; }
+        alert("Erreur de connexion. Veuillez réessayer.");
+      });
     });
   }
 

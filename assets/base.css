@@ -726,80 +726,52 @@ body.menu-open .menu-btn span::after { top:0; transform: rotate(-45deg); }
 /* ============================================================
    SMALL PHONES (≤ 540px)
    ============================================================ */
-
-/* ============================================================
-   MOBILE PHONES — Hero couple layout (≤ 620px)
-   Content row above, both photos side-by-side below.
-   Mirrors the desktop concept on a narrow screen.
-   ============================================================ */
-@media (max-width: 620px) {
-  .hero-couple {
-    padding-block: clamp(64px, 9vh, 90px) clamp(20px, 3vh, 36px);
-    justify-content: flex-start;
-  }
-  .hero-couple-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 20px 10px;
-    align-items: start;
-  }
-  /* Content spans full width on row 1 */
-  .hc-content {
-    grid-column: 1 / -1;
-    grid-row: 1;
-  }
-  /* Photo 1 on left, row 2 */
-  .hc-photo {
-    grid-column: 1;
-    grid-row: 2;
-  }
-  /* Photo 2 on right, row 2 — shown (mirrors desktop) */
-  .hc-photo-2 {
-    grid-column: 2;
-    grid-row: 2;
-    display: block;
-    align-self: start;
-  }
-  /* Portrait photos, height driven by width via aspect-ratio */
-  .hc-photo .photo-wrap,
-  .hc-photo-2 .photo-wrap {
-    height: auto;
-    aspect-ratio: 3 / 4;
-  }
-  .hc-names { font-size: clamp(38px, 10vw, 58px); }
-  /* Compact countdown on narrow screens */
-  .countdown { margin-top: 20px; gap: clamp(10px, 3.5vw, 22px); }
-  .cd-unit b { font-size: clamp(26px, 6.5vw, 40px); }
-  /* Buttons side-by-side (override the 540px stacked rule order) */
-}
-
 @media (max-width: 540px) {
   /* Tightest gutter */
-  :root { --gutter: 18px; }
+  :root { --gutter: 10px; }
 
   /* ---------- Hero ---------- */
   .hero .names { font-size: clamp(44px, 12.5vw, 70px); }
   .hero-inner { padding-block: 88px 52px; min-height: clamp(560px, 100svh, 860px); }
   .hero .eyebrow { font-size: 10.5px; letter-spacing: .28em; }
   .hero .meta .line { font-size: 10px; letter-spacing: .22em; }
-  /* Hero couple fine-tuning at small phone size */
-  .hero-couple { padding-block: clamp(58px, 8vh, 80px) clamp(20px, 3vh, 32px); }
-  .hero .meta .line { letter-spacing: .14em; }
+
+  /* Hero couple — keep 3-column, shrink everything */
+  .hero-couple { padding-block: clamp(58px, 8vh, 80px) clamp(14px, 2vh, 24px); }
+  .hero-couple-grid {
+    grid-template-columns: 1fr 1.8fr 1fr;
+    gap: 5px;
+  }
+  .hc-photo .photo-wrap,
+  .hc-photo-2 .photo-wrap {
+    height: auto;
+    aspect-ratio: 2 / 3;
+  }
+  .hc-names { font-size: clamp(18px, 6vw, 28px); }
+  .hc-names .amp { font-size: .85em; }
+  .hc-content .eyebrow { font-size: 7px; letter-spacing: .14em; margin-bottom: 6px; }
+  .hc-content .divider { margin: 8px auto; width: 28px; }
+  .hc-content .meta { margin-bottom: 10px; }
+  .hc-content .meta .line { font-size: 8px; letter-spacing: .08em; }
 
   /* ---------- Countdown ---------- */
-  .countdown { gap: clamp(8px, 3.5vw, 18px); margin-top: 28px; }
-  .cd-unit { min-width: 38px; }
-  .cd-unit b { font-size: clamp(24px, 6.5vw, 36px); }
-  .cd-unit span { font-size: 7.5px; letter-spacing: .14em; margin-top: 7px; }
-  .cd-unit + .cd-unit::before { left: calc(-1 * clamp(4px, 1.75vw, 9px)); }
-  .cd-label { font-size: 13px; }
+  .countdown { gap: 4px; margin-top: 8px; }
+  .cd-unit { min-width: 0; }
+  .cd-unit b { font-size: clamp(14px, 4.5vw, 22px); }
+  .cd-unit span { font-size: 6px; letter-spacing: .1em; margin-top: 4px; }
+  .cd-unit + .cd-unit::before { left: calc(-1 * clamp(2px, 1vw, 5px)); }
+  .cd-label { font-size: 9px; margin-top: 5px; }
 
-  /* ---------- Button rows ---------- */
+  /* ---------- Hero couple buttons ---------- */
+  .hc-content .btn-row { margin-top: 10px; gap: 5px; flex-direction: column; align-items: stretch; }
+  .hc-content .btn-row .btn, .hc-content .btn-row a.btn {
+    font-size: 9px; padding: 8px 6px; letter-spacing: .1em;
+    text-align: center; justify-content: center; width: 100%;
+  }
+
+  /* ---------- Button rows (general) ---------- */
   .btn-row { flex-direction: column; align-items: stretch; }
   .btn-row .btn, .btn-row a.btn { text-align: center; justify-content: center; width: 100%; }
-  /* Hero couple buttons stay side-by-side (they fit at 58px total content width) */
-  .hc-content .btn-row { flex-direction: row; align-items: center; }
-  .hc-content .btn-row .btn, .hc-content .btn-row a.btn { width: auto; }
 
   /* ---------- Section padding ---------- */
   .section-pad { padding-block: clamp(52px, 12vw, 96px); }
