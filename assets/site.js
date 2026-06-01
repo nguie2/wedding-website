@@ -229,15 +229,26 @@
         all.push(data); localStorage.setItem("st-rsvps", JSON.stringify(all));
       } catch (err) {}
 
-      var msg = data.attending === "no"
-        ? { title: "Merci de nous avoir prévenus", sub: "Vous nous manquerez, mais nous vous sentons proches de cœur.", note: "Votre réponse a été enregistrée." }
-        : { title: "Avec toute notre joie", sub: "Nous avons hâte de célébrer avec vous !", note: "Votre réponse est enregistrée. Votre invitation officielle suivra bientôt." };
-      confirm.querySelector("[data-c-title]").textContent = msg.title;
-      confirm.querySelector("[data-c-sub]").textContent = msg.sub;
-      confirm.querySelector("[data-c-note]").textContent = msg.note;
-      form.hidden = true; confirm.hidden = false;
-      requestAnimationFrame(function(){ confirm.querySelectorAll(".reveal").forEach(function(r){ r.classList.add("in"); }); });
-      window.scrollTo({ top: confirm.getBoundingClientRect().top + window.scrollY - 160, behavior: "smooth" });
+      var submitBtn = form.querySelector('[type="submit"]');
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Envoi en cours…"; }
+
+      function showRsvpConfirm() {
+        var msg = data.attending === "no"
+          ? { title: "Merci de nous avoir prévenus", sub: "Vous nous manquerez, mais nous vous sentons proches de cœur.", note: "Votre réponse a été enregistrée." }
+          : { title: "Avec toute notre joie", sub: "Nous avons hâte de célébrer avec vous !", note: "Votre réponse est enregistrée. Votre invitation officielle suivra bientôt." };
+        confirm.querySelector("[data-c-title]").textContent = msg.title;
+        confirm.querySelector("[data-c-sub]").textContent = msg.sub;
+        confirm.querySelector("[data-c-note]").textContent = msg.note;
+        form.hidden = true; confirm.hidden = false;
+        requestAnimationFrame(function(){ confirm.querySelectorAll(".reveal").forEach(function(r){ r.classList.add("in"); }); });
+        window.scrollTo({ top: confirm.getBoundingClientRect().top + window.scrollY - 160, behavior: "smooth" });
+      }
+
+      fetch("/api/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      }).then(showRsvpConfirm, showRsvpConfirm);
     });
   }
 
