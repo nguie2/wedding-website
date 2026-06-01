@@ -1,0 +1,39 @@
+/* ============================================================
+   THEME — ELEGANT & CLASSY   (Ivory · Champagne · Soft Gold)
+   ============================================================ */
+[data-theme="elegant"] {
+  --bg: #F4EEE4;
+  --bg-alt: #EAE0CE;
+  --surface: #FBF7EF;
+  --ink: #3A342B;
+  --ink-soft: #857A68;
+  --line: #DDD1BC;
+
+  --accent: #A98B57;            /* soft antique gold */
+  --accent-2: #C9B287;
+  --accent-contrast: #FBF7EF;
+
+  /* watercolour washes */
+  --wash-1: rgba(201,178,135,.28);
+  --wash-2: rgba(214,196,160,.22);
+  --wash-3: rgba(190,170,140,.20);
+
+  /* placeholder tones */
+  --ph-1: #E7DCC7;
+  --ph-2: #F1E9D8;
+  --ph-3: #D8C9AE;
+
+  --footer-bg: #34302A;
+  --footer-ink: #ECE3D3;
+  --footer-accent: #C9B287;
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-body: "Mulish", sans-serif;
+  --font-script: "Tangerine", cursive;
+
+  --grain-opacity: .035;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+[data-theme="elegant"] .petal { background: linear-gradient(140deg, #E6D6B4, #CBB078); }

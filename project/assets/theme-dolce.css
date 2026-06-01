@@ -1,0 +1,42 @@
+/* ============================================================
+   THEME — DOLCE VITA   (warm terracotta · sand · soft olive)
+   Toned-down, soft & sun-washed — no loud stripes/clip-art.
+   ============================================================ */
+[data-theme="dolce"] {
+  --bg: #F7EEE0;
+  --bg-alt: #F3E2C9;
+  --surface: #FDF8EF;
+  --ink: #463528;
+  --ink-soft: #9A7E5F;
+  --line: #E6D3B5;
+
+  --accent: #BE6A45;            /* soft terracotta */
+  --accent-2: #D69A53;          /* warm sand-gold */
+  --accent-contrast: #FDF8EF;
+
+  /* watercolour washes — sun-drenched */
+  --wash-1: rgba(214,154,83,.26);
+  --wash-2: rgba(190,106,69,.18);
+  --wash-3: rgba(150,150,96,.16);   /* olive whisper */
+
+  --ph-1: #EFD9BC;
+  --ph-2: #F6E7CF;
+  --ph-3: #E0B98C;
+
+  --footer-bg: #5E5538;          /* deep soft olive */
+  --footer-ink: #F7EEE0;
+  --footer-accent: #D69A53;
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-body: "Mulish", sans-serif;
+  --font-script: "Tangerine", cursive;
+
+  --grain-opacity: .04;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
+[data-theme="dolce"] .petal { background: linear-gradient(140deg, #E9B57E, #C97A4F); }
+
+/* a touch warmer accent on the script names */
+[data-theme="dolce"] .hero .names .amp { color: var(--accent-2); }
