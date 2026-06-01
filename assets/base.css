@@ -307,6 +307,12 @@ body.menu-open .menu-btn span::after { top:0; transform: rotate(-45deg); }
 .contact-chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 .chip-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
 
+/* hotel external link */
+.hotel-link { display: inline-block; font-family: var(--font-body); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); padding-bottom: 1px; transition: border-color .25s, opacity .25s; margin-top: 14px; }
+.hotel-link:hover { border-color: var(--accent); opacity: .75; }
+.hotel-card .body { display: flex; flex-direction: column; }
+.hotel-card .body .hotel-link { margin-top: auto; padding-top: 12px; }
+
 /* price callout */
 .callout { background: color-mix(in srgb, var(--surface) 70%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line)); border-radius: var(--radius); padding: clamp(32px,4.5vw,56px); text-align: center; }
 .callout .big { font-family: var(--font-display); font-size: clamp(40px,6vw,68px); color: var(--accent); line-height:1; font-weight: 300; }
