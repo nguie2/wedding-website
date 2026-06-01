@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="elegant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RSVP | Sifa &amp; Tommy</title>
+<meta name="description" content="Kindly reply to Sifa &amp; Tommy's wedding invitation." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Mulish:wght@300;400;500&family=Tangerine:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/base.css" />
+<link rel="stylesheet" href="assets/theme-elegant.css" />
+<link rel="stylesheet" href="assets/theme-dolce.css" />
+</head>
+<body data-page="rsvp">
+
+<section class="page-hero" data-screen-label="RSVP - Hero">
+  <div class="wrap">
+    <span class="script intro d1">R.S.V.P.</span>
+    <h1 class="intro d2">Will you celebrate with us?</h1>
+    <p class="intro d3">R&eacute;pondez s'il vous pla&icirc;t &middot; Kindly reply so we can plan with care.</p>
+  </div>
+</section>
+
+<section class="section-pad" style="padding-top:clamp(20px,4vw,48px);">
+  <div class="wrap">
+
+    <form id="rsvp-form" class="form" novalidate>
+      <div class="field">
+        <label for="name">Full name &middot; Nom complet</label>
+        <input id="name" name="name" type="text" autocomplete="name" placeholder="e.g. Candy Monga" />
+        <span class="err">Please tell us your name.</span>
+      </div>
+
+      <div class="field">
+        <label for="email">Email &middot; Courriel</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+        <span class="err">Please enter a valid email address.</span>
+      </div>
+
+      <div class="field">
+        <label>Will you attend? &middot; Serez-vous pr&eacute;sent&middot;e&nbsp;?</label>
+        <div class="seg" data-name="attending">
+          <label data-value="yes"><input type="radio" name="attending" value="yes" />Joyfully accepts &middot; Oui</label>
+          <label data-value="no"><input type="radio" name="attending" value="no" />Regretfully declines &middot; Non</label>
+        </div>
+        <span class="err">Please let us know if you can make it.</span>
+      </div>
+
+      <div class="field" data-when-attending>
+        <label>Which celebration(s)? &middot; Quelle(s) c&eacute;l&eacute;bration(s)&nbsp;?</label>
+        <div class="seg" data-name="events">
+          <label data-value="lubumbashi"><input type="radio" name="events" value="lubumbashi" />Lubumbashi</label>
+          <label data-value="zanzibar"><input type="radio" name="events" value="zanzibar" />Zanzibar</label>
+          <label data-value="both"><input type="radio" name="events" value="both" />Both &middot; Les deux</label>
+        </div>
+        <span class="err">Please choose which celebration you'll join.</span>
+      </div>
+
+      <div class="field-row" data-when-attending>
+        <div class="field">
+          <label for="guests">Number in your party &middot; Nombre de personnes</label>
+          <select id="guests" name="guests">
+            <option value="">Select…</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+          </select>
+          <span class="err">Please select how many guests.</span>
+        </div>
+        <div class="field">
+          <label for="diet">Dietary needs &middot; R&eacute;gime alimentaire</label>
+          <input id="diet" name="diet" type="text" placeholder="Allergies, vegetarian…" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">A note to the couple &middot; Un mot pour les mari&eacute;s</label>
+        <textarea id="message" name="message" placeholder="Share your wishes, a song request, anything…"></textarea>
+      </div>
+
+      <div style="text-align:center; margin-top:32px;">
+        <button class="btn" type="submit">Send our reply &middot; Envoyer</button>
+        <p style="font-size:13px; color:var(--ink-soft); margin-top:16px;">Your response is saved on this device. The official invitation will follow.</p>
+      </div>
+    </form>
+
+    <div id="rsvp-confirm" class="rsvp-confirm narrow" hidden style="margin:0 auto;">
+      <span class="script" data-c-en>We can't wait to celebrate with you!</span>
+      <p class="lede" data-c-fr style="margin-top:8px;"></p>
+      <div class="divider"></div>
+      <p data-c-sub></p>
+      <div class="btn-row" style="justify-content:center; margin-top:24px;">
+        <a class="btn ghost" href="index.html">Back home</a>
+        <a class="btn" href="travel.html">Plan your trip</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
