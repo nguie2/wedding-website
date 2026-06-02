@@ -244,14 +244,31 @@
         window.scrollTo({ top: confirm.getBoundingClientRect().top + window.scrollY - 160, behavior: "smooth" });
       }
 
-      fetch("/api/rsvp", {
+      var SHEET_URL = "https://script.google.com/macros/s/AKfycbxA7R-Zfg2KLM8LFi8ndoc-HDDPiz_ZimbZ0txDv6htboVZQCY0TfOjFcUjfiRAiIg6/exec";
+
+      var eventsLabel = {
+        lubumbashi: "Lubumbashi — Cérémonie Civile (30 oct. 2026)",
+        zanzibar:   "Zanzibar — Cérémonie Religieuse (28 nov. 2026)",
+        both:       "Les deux célébrations (Lubumbashi + Zanzibar)"
+      }[data.events] || data.events || "";
+
+      var payload = {
+        name:        data.name,
+        email:       data.email,
+        attending:   data.attending === "yes" ? "Yes" : "No",
+        celebration: eventsLabel,
+        guests:      data.guests || 0,
+        diet:        data.diet || "",
+        message:     data.message || ""
+      };
+
+      fetch(SHEET_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
+        body: JSON.stringify(payload)
       })
       .then(function(r) { return r.json(); })
       .then(function(result) {
-        if (result.ok) {
+        if (result.success) {
           showRsvpConfirm();
         } else {
           if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "Envoyer ma réponse"; }
